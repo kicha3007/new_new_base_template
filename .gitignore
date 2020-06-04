@@ -1,0 +1,77 @@
+# Файлы сборщика вёрстки
+/npm-debug.log
+/node_modules/
+/experemental/
+/PSD/
+node_modules/
+
+# public/
+
+/local/modules/endorphin.pphug/
+
+# Ignore env local files
+.idea
+.directory
+.DS_Store
+nbproject
+hyperterm_access*
+
+
+# Ingore test-page files
+/test.php
+/test*.php
+/page.php
+/noauth.php
+/restore.php
+/test
+/test/*
+!.*
+!/.*
+/*.tar.gz
+/*.tar.gz.*
+/*.psd
+/.idea
+
+# Ignore web-statistic data
+/webstat/
+
+# exclude bitrix uploads
+/upload/resize_cache/
+
+# urlrewrite chanches to often. Ignore and fixing changes in copy urlrewrite_.php manualy.
+/urlrewrite.php
+
+!/.gitignore
+/bitrix
+/bitrix/
+
+/upload/
+/upload*
+
+# readme log
+!/README.md
+
+/restore.php
+/.htaccess
+/.htaccess.restore
+
+#statis output files and dirs
+*.restore
+*.xml
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.log
+*.txt
+*.sass-cache
+# *.html
+
+*.dat
+*.conf
+*.avi
+
+/.clean
+/.old
+web.config
+.DS_Store

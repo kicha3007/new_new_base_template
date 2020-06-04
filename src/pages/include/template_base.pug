@@ -1,0 +1,56 @@
+include mixins
+include variables
+block variables
+
+
+doctype html
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		- title_page = typeof title ==="undefined" ? 'Bluesleep' : 'Bluesleep | '+title
+			title #{title_page}
+		meta(name="viewport", content="width=device-width initial-scale=1.0")
+		block assets
+			link(rel="stylesheet", href="css/style.css")
+			script(src="js/scripts.js")
+
+	body
+
+		.main-wrapper
+
+			include header.pug
+			//if(typeof titlePage !== "undefined" && titlePage)
+			//	h1.all-page-title #{titlePage}
+
+			main.main
+				block content
+
+		include footer.pug
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

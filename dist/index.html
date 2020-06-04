@@ -1,0 +1,202 @@
+
+<!--extend include/template_base-->
+<link rel="stylesheet" href="css/style.css"/>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/scripts.js"></script>
+<me></me>
+<meta name="viewport" content="width=device-width initial-scale=1.0"/>
+<style>
+  .container {
+  	width: 100%;
+  	max-width: 970px;
+  	margin: 0 auto;
+  	padding: 0 20px;
+  }
+  .descript-box *,
+  .descript-box {
+  	box-sizing: border-box;
+  }
+  .descript-box p {
+  	padding: 0px;
+  	margin: 0px 0px 14px;
+  	font-size: 12px ;
+  	line-height: 1.5 ;
+  }
+  .descript-box__img {
+  	display: block;
+  	max-width: 100%;
+  	height: auto;
+  
+  }
+  .descript-box__top {
+  	margin-bottom: 20px;
+  }
+  .descript-box__center {
+  	display: flex;
+  	margin-bottom: 20px;
+  }
+  .descript-box__column_pos_1 {
+  	max-width: 300px;
+  
+  }
+  .descript-box__img-box {
+  	max-height: 300px;
+  	overflow: hidden;
+  	border-radius: 20px;
+  }
+  
+  .descript-box__column {
+  	flex-grow: 1;
+  	flex-basis: 100px;
+  }
+  
+  .descript-box__column_pos_2 {
+  	display: flex;
+  	align-items: center;
+  	padding-left: 40px;
+  	padding-right: 20px;
+  	padding-bottom: 20px;
+  	padding-top: 20px;
+  }
+  
+  .descript-box__description {
+  	max-width: 450px;
+  
+  }
+  
+  .descript-box__list {
+  	display: flex;
+  	margin: 0 -10px;
+  
+  }
+  
+  .descript-box__item {
+  	width: calc(25% - 20px);
+  	margin: 0 10px;
+  
+  }
+  
+  .descript-box__item-img-box {
+  	max-height: 220px;
+  	overflow: hidden;
+  	border-radius: 20px;
+  	margin-bottom: 15px;
+  	display: flex;
+  	justify-content: center;
+  }
+  .descript-box__item-img {
+  	display: block;
+  	max-width: 100%;
+  	height: auto;
+  }
+  
+  .descript-box__item-title {
+  	font-size: 17px;
+  	line-height: 1.255;
+  	font-family: inherit;
+  	margin-bottom: 6px;
+  	font-weight: normal;
+  
+  }
+  .descript-box__item-desc {
+  	padding: 0px;
+  	margin: 0px 0px 14px;
+  	font-size: 12px ;
+  	line-height: 1.5;
+  		}
+  
+  .descript-box__bottom {
+  	margin-bottom: 40px;
+  
+  }
+  
+  @media all and (max-width: 575px) {
+  	.descript-box__top {
+  		margin-bottom: 30px;
+  	}
+  
+  	.descript-box__center {
+  		flex-wrap: wrap;
+  		justify-content: center;
+  		margin-bottom: 30px;
+  	}
+  
+  	.descript-box__column {
+  		flex-basis: 100%;
+  	}
+  
+  	.descript-box__column_pos_1 {
+  		max-width: 200px;
+  		margin-bottom: 20px;
+  	}
+  
+  	.descript-box__column_pos_2 {
+  		padding-left: 20px;
+  	}
+  
+  
+  	.descript-box__list {
+  		flex-wrap: wrap;
+  
+  	}
+  
+  	.descript-box__item {
+  		width: calc(50% - 20px);
+  		margin-bottom: 20px;
+  
+  	}
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+</style>
+<div class="container">
+  <div class="descript-box">
+    <div class="descript-box__top"><img class="descript-box__img" src="img/pampers_1.jpg" alt=""/></div>
+    <div class="descript-box__center">
+      <div class="descript-box__column descript-box__column_pos_1">
+        <div class="descript-box__img-box"><img class="descript-box__img" src="img/pampers_2.jpg" alt=""/></div>
+      </div>
+      <div class="descript-box__column descript-box__column_pos_2">
+        <div class="descript-box__description">Wrap your baby in Pampers Premium Protection, Pampers' softest comfort and unbeatable skin protection, approved by the British Skin Foundation. This nappy provides feather-like softness, and is now lined with Heart Quilts to feel even softer against baby’s skin while pulling away wetness and mess. It also has a Wetness Indicator to tell you when your baby might need a change. Finally, Pampers make sure your baby’s delicate belly is protected with a nappy that features a Navel Friendly Cut. Use with Pampers baby wipes.</div>
+      </div>
+    </div>
+    <div class="descript-box__bottom">
+      <div class="descript-box__list">
+        <div class="descript-box__item">
+          <div class="descript-box__item-img-box"><img class="descript-box__item-img" src="img/pampers_3.jpg" alt=""/></div>
+          <div class="descript-box__item-title">Approved by the British Skin Foundation</div>
+          <div class="descript-box__item-desc">
+            <p>Pampers Premium Protection is the only newborn nappy approved by the British Skin Foundation*.</p>
+            <p>Per agreement with the British Skin Foundation (since March 2016 till March 2020)</p>
+          </div>
+        </div>
+        <div class="descript-box__item">
+          <div class="descript-box__item-img-box"><img class="descript-box__item-img" src="img/pampers_4.jpg" alt=""/></div>
+          <div class="descript-box__item-title">Silky Softness</div>
+          <div class="descript-box__item-desc">
+            Selected feathery* soft materials for Pampers’ gentlest touch on baby’s skin.
+            *does not contain feathers
+          </div>
+        </div>
+        <div class="descript-box__item">
+          <div class="descript-box__item-img-box"><img class="descript-box__item-img" src="img/pampers_5.jpg" alt=""/></div>
+          <div class="descript-box__item-title">Three Absorbing Channels</div>
+          <div class="descript-box__item-desc">Creates breathable dryness and provides up to 12 hours of trusted dryness.</div>
+        </div>
+        <div class="descript-box__item">
+          <div class="descript-box__item-img-box"><img class="descript-box__item-img" src="img/pampers_6.jpg" alt=""/></div>
+          <div class="descript-box__item-title">Absorb-Away Layer</div>
+          <div class="descript-box__item-desc">Lined with Heart Quilts to feel even softer against baby’s skin, while pulling away wetness and mess.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
