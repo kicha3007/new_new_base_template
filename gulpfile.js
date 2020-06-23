@@ -47,7 +47,8 @@ task('styles', () => {
         // .pipe(gcmq())
         .pipe(cleanCSS())
         .pipe(sourcemaps.write())
-        .pipe(dest(`${DIST_PATH}/assets/css`));
+        .pipe(dest(`${DIST_PATH}/assets/css`))
+        .pipe(reload({stream: true}));
 });
 
 task('scripts', () => {
@@ -71,19 +72,64 @@ task('icons', () => {
             plugins: [
                 {
                     removeAttrs: {
-                        attrs: "(fill|stroke|style|width|height|data.*)"
-                    }
+                        attrs: "(width|height|data.*)"
+                    },
+
                 }
             ]
         }))
         .pipe(svgSprite({
             mode: {
                 symbol: {
-                    sprite: "../sprite.svg"
+                    sprite: "../symbol_sprite.html",
+                    prefix: 'icon-%f',
+                    namespaceIDPrefix: 'icon-%f'
+                },
+
+            },
+            shape : {
+                id : {
+                    generator: 'icon-%s'
+                },
+                dimension: { // Dimension related options
+                    maxWidth: 0,
+                    maxHeight: 0,
+                    attributes: {
+                        'width': '50px'
+                    }
+
                 }
-            }
+
+            },
+            svg: { // General options for created SVG files
+                xmlDeclaration: true, // Add XML declaration to SVG sprite
+                doctypeDeclaration: true, // Add DOCTYPE declaration to SVG sprite
+                namespaceIDs: true, // Add namespace token to all IDs in SVG shapes
+                namespaceIDPrefix: '', // Add a prefix to the automatically generated namespaceIDs
+                namespaceClassnames: true, // Add namespace token to all CSS class names in SVG shapes
+                dimensionAttributes: true // Width and height attributes on the sprite
+            },
+
         }))
-        .pipe(dest(`${DIST_PATH}/assets/svg`))
+        .pipe(dest(`${DIST_PATH}/assets/icons/`))
+});
+
+task('copy:img', () => {
+    return src(`${SRC_PATH}/assets/img/**/*`)
+        .pipe(dest(`${DIST_PATH}/assets/img/`))
+        .pipe(reload({stream: true}));
+});
+
+task('copy:fonts', () => {
+    return src(`${SRC_PATH}/assets/fonts/**/*`)
+        .pipe(dest(`${DIST_PATH}/assets/fonts/`))
+        .pipe(reload({stream: true}));
+});
+
+task('copy:js', () => {
+    return src(`${SRC_PATH}/assets/js/libs/*.js`)
+        .pipe(dest(`${DIST_PATH}/assets/js/libs`))
+        .pipe(reload({stream: true}));
 });
 
 task('server', () => {
@@ -96,15 +142,18 @@ task('server', () => {
 });
 
 task('watch', () => {
-    watch(`./${SRC_PATH}/styles**/*.scss`, series('styles'));
-    watch(`./${SRC_PATH}/*.html`, series('compile:pug'));
+    watch(`./${SRC_PATH}/styles/**/*.scss`, series('styles'));
+    watch(`./${SRC_PATH}/pages/**/*.pug`, series('compile:pug'));
     watch(`./${SRC_PATH}/assets/js/*.js`, series('scripts'));
     watch(`./${SRC_PATH}/assets/svg/*.svg`, series('icons'));
+    watch(`./${SRC_PATH}/assets/img/**/*`, series('copy:img'));
+    watch(`./${SRC_PATH}/assets/fonts/**/*`, series('copy:fonts'));
+    watch(`./${SRC_PATH}/assets/js/libs/*`, series('copy:js'));
 });
 
 task('default',
     series('clean',
-        parallel('compile:pug', 'styles', 'scripts', 'icons'),
+        parallel('compile:pug', 'styles', 'scripts', 'icons', 'copy:img', 'copy:fonts', 'copy:js'),
         parallel('watch', 'server')
     )
 );
